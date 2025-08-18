@@ -25,7 +25,7 @@ ki18n_install(po)
 # Optional: Add custom target to update .pot file
 find_package(Gettext REQUIRED)
 add_custom_target(update-pot
-    COMMAND xgettext --language=C++ --keyword=i18n --from-code=UTF-8 --output=po/zh_CN.po ${A}
+    COMMAND xgettext --language=C++ --keyword=i18n --from-code=UTF-8 --output=po/template.po ${A}
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     COMMENT "Updating translation template (POT) file"
 )
