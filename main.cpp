@@ -8,9 +8,9 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    KLocalizedString::setApplicationDomain("demo");
+    KLocalizedString::setApplicationDomain("zzz");
 
-    KLocalizedString::addDomainLocaleDir(QStringLiteral("demo").toUtf8(), QStringLiteral("C:/ProgramData/locale"));
+    KLocalizedString::addDomainLocaleDir(QStringLiteral("zzz").toUtf8(), QStringLiteral("C:/ProgramData/locale"));
 
     auto paths = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("locale"), QStandardPaths::LocateDirectory);
 
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
         }
     }
 
-	auto langs = KLocalizedString::availableDomainTranslations(QStringLiteral("demo").toUtf8());
+	auto langs = KLocalizedString::availableDomainTranslations(QStringLiteral("zzz").toUtf8());
 
     KAboutData aboutData(
         QStringLiteral("demo"),
