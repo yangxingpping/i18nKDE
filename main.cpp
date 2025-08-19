@@ -4,6 +4,7 @@
 #include <KLocalizedString>
 #include <KAboutData>
 #include <KLocalizedContext>
+#include "Dialog1.h"
 
 int main(int argc, char *argv[])
 {
@@ -37,8 +38,10 @@ int main(int argc, char *argv[])
     );
     KAboutData::setApplicationData(aboutData);
 
-    QLabel label(i18n("Hello, KDE World!"));
-    label.show();
+    /*QLabel label(i18n("Hello, KDE World!"));
+    label.show();*/
+	Dialog1 dialog;
+    dialog.show();
 
     return app.exec();
 }
