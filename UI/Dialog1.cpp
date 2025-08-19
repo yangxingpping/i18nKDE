@@ -21,8 +21,10 @@ Dialog1::Dialog1(QWidget* parent)
     p2->setCheckable(true);
     rootItem->appendRow({p2 , new QStandardItem(QStringLiteral("123")) });
 
+    QItemSelectionModel* checkModel = new QItemSelectionModel(model, this);
     KCheckableProxyModel* checkableModel = new KCheckableProxyModel;
     checkableModel->setSourceModel(model);
+	checkableModel->setSelectionModel(checkModel);
 
 	ui.treeView->setModel(checkableModel);
     ui.treeView->expandAll();
