@@ -1,5 +1,6 @@
 
 #include "Dialog1.h"
+#include "KF5/KItemModels/KCheckableProxyModel"
 #include <QStandardItemModel>
 
 Dialog1::Dialog1(QWidget* parent)
@@ -16,8 +17,16 @@ Dialog1::Dialog1(QWidget* parent)
     parentItem->appendRow({ new QStandardItem(QStringLiteral("Child 1")), new QStandardItem(QStringLiteral("Value 1")) });
     parentItem->appendRow({ new QStandardItem(QStringLiteral("Child 2")), new QStandardItem(QStringLiteral("Value 2")) });
     rootItem->appendRow({ parentItem, new QStandardItem(QStringLiteral("Parent Value")) });
-    rootItem->appendRow({ new QStandardItem(QStringLiteral("Another Node")), new QStandardItem(QStringLiteral("123")) });
-	ui.treeView->setModel(model);
+    auto p2 = new QStandardItem(QStringLiteral("Another Node"));
+    p2->setCheckable(true);
+    rootItem->appendRow({p2 , new QStandardItem(QStringLiteral("123")) });
+
+    KCheckableProxyModel* checkableModel = new KCheckableProxyModel;
+    checkableModel->setSourceModel(model);
+
+	ui.treeView->setModel(checkableModel);
+    ui.treeView->expandAll();
+    ui.treeView->setColumnWidth(0, 300);
 }
 
 Dialog1::~Dialog1()
