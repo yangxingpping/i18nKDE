@@ -3,8 +3,15 @@
 #include <QStandardPaths>
 #include <KLocalizedString>
 #include <KAboutData>
+#include "ktexteditor/ktexteditor/Editor"
 #include <KLocalizedContext>
 #include "Dialog1.h"
+#include <QStyleFactory>
+
+void fakeFunc()
+{
+	auto fake = KTextEditor::Editor::instance();
+}
 
 int main(int argc, char *argv[])
 {
@@ -40,6 +47,9 @@ int main(int argc, char *argv[])
 
     /*QLabel label(i18n("Hello, KDE World!"));
     label.show();*/
+	auto keys = QStyleFactory::keys();
+	auto style = QStyleFactory::create(QStringLiteral("Breeze"));
+    qApp->setStyle(style);
 	Dialog1 dialog;
     dialog.show();
 
